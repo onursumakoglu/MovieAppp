@@ -1,5 +1,5 @@
 package com.onurberin.movieapp
-
+//https://developers.themoviedb.org/3/getting-started/introduction
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
