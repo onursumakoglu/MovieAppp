@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_activity_nav"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.onurberin.movieapp.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/popularFragment"
+        android:name="com.onurberin.movieapp.PopularFragment"
+        android:label="fragment_popular"
+        tools:layout="@layout/fragment_popular" />
+    <fragment
+        android:id="@+id/favoritesFragment"
+        android:name="com.onurberin.movieapp.FavoritesFragment"
+        android:label="fragment_favorites"
+        tools:layout="@layout/fragment_favorites" />
+    <fragment
+        android:id="@+id/detailsFragment"
+        android:name="com.onurberin.movieapp.DetailsFragment"
+        android:label="fragment_details"
+        tools:layout="@layout/fragment_details" />
+</navigation>
