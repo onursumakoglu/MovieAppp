@@ -7,8 +7,9 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="movieBlue">#A6C4C1</color>
+    <color name="movie_blue">#A6C4C1</color>
     <color name="ivory">#E9EAE0</color>
     <color name="rose_quartz">#F7BEC0</color>
     <color name="red">#E7625F</color>
+    <color name="app_color">#85B1AD</color>
 </resources>
