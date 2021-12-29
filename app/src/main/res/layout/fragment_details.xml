@@ -48,18 +48,18 @@
                 android:id="@+id/img_detail"
                 android:layout_width="170sp"
                 android:layout_height="170dp"
-                android:background="@color/white"
-                android:layout_centerInParent="true"/>
+                android:layout_centerInParent="true"
+                android:background="@color/white" />
+
             <ImageView
                 android:id="@+id/img_detail_like"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:background="@drawable/ic_like"
                 android:layout_below="@+id/img_detail"
                 android:layout_alignParentEnd="true"
                 android:layout_marginRight="30dp"
                 android:layout_marginBottom="16dp"
-                />
+                android:background="@drawable/ic_like" />
             <TextView
                 android:id="@+id/txt_imdb"
                 android:layout_width="wrap_content"
