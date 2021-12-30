@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.viewpager.widget.ViewPager
 import com.google.android.material.tabs.TabLayout
+import com.onurberin.movieapp.view.PopularFragment
 
 
 class PopularAndUpcomingFragment : Fragment() {

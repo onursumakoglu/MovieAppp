@@ -17,32 +17,13 @@
         android:background="@color/movie_blue"
         >
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar_detail"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/app_color"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Movie Detail"
-                android:textAlignment="center"
-                android:textColor="@color/teal_700"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-        </androidx.appcompat.widget.Toolbar>
 
         <RelativeLayout
             android:id="@+id/layut_detai_img"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@id/toolbar_detail"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="8dp">
+            >
 
             <ImageView
                 android:id="@+id/img_detail"
