@@ -14,7 +14,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var transaction: FragmentTransaction
 
     private lateinit var homeFragment: HomeFragment
-    private lateinit var popularFragment: PopularFragment
+    private lateinit var popularAndUpcomingFragment: PopularAndUpcomingFragment
     private lateinit var favoritesFragment: FavoritesFragment
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity() {
         bottomNav = findViewById(R.id.bottom_navigation_view)
 
         homeFragment = HomeFragment()
-        popularFragment = PopularFragment()
+        popularAndUpcomingFragment = PopularAndUpcomingFragment()
         favoritesFragment = FavoritesFragment()
 
         setFragment(homeFragment)
@@ -35,7 +35,7 @@ class MainActivity : AppCompatActivity() {
                     true
                 }
                 R.id.bottom_menu_popular-> {
-                    setFragment(popularFragment)
+                    setFragment(popularAndUpcomingFragment)
                     true
                 }
                 R.id.bottom_menu_favorites-> {
