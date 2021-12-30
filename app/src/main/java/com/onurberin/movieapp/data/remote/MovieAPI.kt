@@ -14,14 +14,14 @@ interface MovieAPI {
     @GET("movie/top_rated")
     fun getTopRatedMovies(
         @Query("api_key") apiKey : String = "787e75e639e0896dcb4ffe2f44545b43",
-        @Query("page") page : Int = 1
-    ) : Call<List<MovieFirstData>>
+        @Query("page") page : Int
+    ) : Call<MovieFirstData>
 
     @GET("movie/upcoming")
     fun getUpcomingMovies(
         @Query("api_key") apiKey : String = "787e75e639e0896dcb4ffe2f44545b43",
-        @Query("page") page : Int = 1
-    ) : Call<List<MovieFirstData>>
+        @Query("page") page : Int
+    ) : Call<MovieFirstData>
 
 }
 

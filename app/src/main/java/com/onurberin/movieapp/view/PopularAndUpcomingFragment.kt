@@ -1,4 +1,4 @@
-package com.onurberin.movieapp
+package com.onurberin.movieapp.view
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,6 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.viewpager.widget.ViewPager
 import com.google.android.material.tabs.TabLayout
+import com.onurberin.movieapp.R
+import com.onurberin.movieapp.adapter.ViewPagerAdapter
 
 
 class PopularAndUpcomingFragment : Fragment() {
@@ -46,10 +48,6 @@ class PopularAndUpcomingFragment : Fragment() {
         setupViewPager(tabViewPager)
 
         tabLayout.setupWithViewPager(tabViewPager)
-
-
-
-
 
     }
 }

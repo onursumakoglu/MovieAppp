@@ -33,13 +33,6 @@ class HomeMovieAdapter(private val movieDTO: List<MovieDTO>):
 
     }
 
-    override fun getItemViewType(position: Int): Int {
-        if(position == itemCount) {
-            return R.layout.home_end_of_recycler_button
-        }else
-            return R.layout.home_recycler_item
-    }
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MoviesHolder {
         view = LayoutInflater.from(parent.context).inflate(R.layout.home_recycler_item, parent, false)
         return MoviesHolder(view)

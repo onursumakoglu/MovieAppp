@@ -1,13 +1,11 @@
-package com.onurberin.movieapp
+package com.onurberin.movieapp.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.onurberin.movieapp.view.FavoritesFragment
-import com.onurberin.movieapp.view.HomeFragment
-import com.onurberin.movieapp.view.PopularFragment
+import com.onurberin.movieapp.R
 
 class MainActivity : AppCompatActivity() {
     private lateinit var bottomNav: BottomNavigationView
@@ -34,11 +32,11 @@ class MainActivity : AppCompatActivity() {
                     setFragment(homeFragment)
                     true
                 }
-                R.id.bottom_menu_popular-> {
+                R.id.bottom_menu_popular -> {
                     setFragment(popularAndUpcomingFragment)
                     true
                 }
-                R.id.bottom_menu_favorites-> {
+                R.id.bottom_menu_favorites -> {
                     setFragment(favoritesFragment)
                     true
                 }
