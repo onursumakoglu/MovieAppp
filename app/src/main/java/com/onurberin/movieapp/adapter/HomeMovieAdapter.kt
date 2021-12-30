@@ -1,6 +1,5 @@
-package com.onurberin.movieapp
+package com.onurberin.movieapp.adapter
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,6 +7,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.onurberin.movieapp.R
 import com.onurberin.movieapp.data.remote.MovieDTO
 
 class HomeMovieAdapter(private val movieDTO: List<MovieDTO>):
@@ -33,12 +33,20 @@ class HomeMovieAdapter(private val movieDTO: List<MovieDTO>):
 
     }
 
+    override fun getItemViewType(position: Int): Int {
+        if(position == itemCount) {
+            return R.layout.home_end_of_recycler_button
+        }else
+            return R.layout.home_recycler_item
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MoviesHolder {
-        view = LayoutInflater.from(parent.context).inflate(R.layout.home_grid_recycler_item, parent, false)
+        view = LayoutInflater.from(parent.context).inflate(R.layout.home_recycler_item, parent, false)
         return MoviesHolder(view)
     }
 
     override fun onBindViewHolder(holder: MoviesHolder, position: Int) {
+
         holder.bind(movieDTO[position])
     }
 

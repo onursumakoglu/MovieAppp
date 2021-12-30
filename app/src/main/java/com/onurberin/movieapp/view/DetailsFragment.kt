@@ -1,4 +1,4 @@
-package com.onurberin.movieapp
+package com.onurberin.movieapp.view
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

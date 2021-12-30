@@ -4,10 +4,10 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
-import androidx.navigation.Navigation
-import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.ui.NavigationUI
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.onurberin.movieapp.view.FavoritesFragment
+import com.onurberin.movieapp.view.HomeFragment
+import com.onurberin.movieapp.view.PopularFragment
 
 class MainActivity : AppCompatActivity() {
     private lateinit var bottomNav: BottomNavigationView

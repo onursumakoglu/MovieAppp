@@ -7,8 +7,8 @@ import retrofit2.http.Query
 interface MovieAPI {
     @GET("movie/popular")
     fun getPopularMovies(
-        @Query("api_key") apiKey : String = "787e75e639e0896dcb4ffe2f44545b43",
-        @Query("page") page : Int = 1
+        @Query("api_key") apiKey : String,
+        @Query("page") page : Int
     ) : Call<MovieFirstData>
 
     @GET("movie/top_rated")
