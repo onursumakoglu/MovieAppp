@@ -33,7 +33,6 @@ class HomeMovieAdapter(private val movieDTO: List<MovieDTO>):
                 //.placeholder(R.drawable.loading_spinner)
                 .into(imgMoviePoster);
 
-
         }
 
     }

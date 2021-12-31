@@ -94,9 +94,6 @@ class HomeFragment : Fragment() {
 
         mRecyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener(){
             override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
-
-
-
             }
 
         })
