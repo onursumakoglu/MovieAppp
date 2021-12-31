@@ -3,26 +3,21 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_activity_nav"
-    app:startDestination="@id/homeFragment">
-
+    app:startDestination="@id/mainFragment">
     <fragment
-        android:id="@+id/homeFragment"
-        android:name="com.onurberin.movieapp.view.HomeFragment"
-        android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
-    <fragment
-        android:id="@+id/popularFragment"
-        android:name="com.onurberin.movieapp.view.PopularFragment"
-        android:label="fragment_popular"
-        tools:layout="@layout/fragment_popular" />
-    <fragment
-        android:id="@+id/favoritesFragment"
-        android:name="com.onurberin.movieapp.view.FavoritesFragment"
-        android:label="fragment_favorites"
-        tools:layout="@layout/fragment_favorites" />
+        android:id="@+id/mainFragment"
+        android:name="com.onurberin.movieapp.view.MainFragment"
+        android:label="MainFragment" >
+        <action
+            android:id="@+id/action_mainFragment_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
+    </fragment>
     <fragment
         android:id="@+id/detailsFragment"
         android:name="com.onurberin.movieapp.view.DetailsFragment"
-        android:label="fragment_details"
-        tools:layout="@layout/fragment_details" />
+        android:label="DetailsFragment" >
+        <argument
+            android:name="movieData"
+            app:argType="com.onurberin.movieapp.data.remote.MovieDTO" />
+    </fragment>
 </navigation>

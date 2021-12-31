@@ -5,17 +5,20 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.onurberin.movieapp.R
 import com.onurberin.movieapp.data.remote.MovieDTO
+import com.onurberin.movieapp.view.MainFragmentDirections
 
 class HomeMovieAdapter(private val movieDTO: List<MovieDTO>):
     RecyclerView.Adapter<HomeMovieAdapter.MoviesHolder>() {
 
     private lateinit var view: View
+    var aPos: Int = 0
 
-    inner class MoviesHolder(view: View): RecyclerView.ViewHolder(view) {
+    inner class MoviesHolder(var view: View): RecyclerView.ViewHolder(view) {
         var txtMovieName: TextView = view.findViewById(R.id.home_grid_movie_name)
         var txtMoviePoint: TextView = view.findViewById(R.id.home_grid_movie_point)
         var imgMoviePoster: ImageView = view.findViewById(R.id.home_grid_movie_image)
@@ -29,6 +32,8 @@ class HomeMovieAdapter(private val movieDTO: List<MovieDTO>):
                 .centerCrop()
                 //.placeholder(R.drawable.loading_spinner)
                 .into(imgMoviePoster);
+
+
         }
 
     }
@@ -39,13 +44,21 @@ class HomeMovieAdapter(private val movieDTO: List<MovieDTO>):
     }
 
     override fun onBindViewHolder(holder: MoviesHolder, position: Int) {
-
         holder.bind(movieDTO[position])
+
+        holder.view.setOnClickListener {
+
+            aPos = holder.adapterPosition
+
+            if (aPos != RecyclerView.NO_POSITION){
+                val direction = MainFragmentDirections.actionMainFragmentToDetailsFragment(movieData = movieDTO[aPos])
+                Navigation.findNavController(it).navigate(direction)
+            }
+
+        }
     }
 
     override fun getItemCount(): Int {
         return movieDTO.size
     }
-
-
 }

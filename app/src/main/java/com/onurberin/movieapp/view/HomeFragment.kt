@@ -32,8 +32,6 @@ class HomeFragment : Fragment() {
     private lateinit var mRecyclerView: RecyclerView
     private lateinit var movieAdapter: HomeMovieAdapter
     var numberOfColumns = 2
-    var pageNumber = 1
-    private lateinit var homeLayoutManager: LinearLayoutManager
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -92,7 +90,7 @@ class HomeFragment : Fragment() {
     }
 
 
-    private fun attachPopularMoviesOnScrollListener(){
+    /*private fun attachPopularMoviesOnScrollListener(){
 
         mRecyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener(){
             override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
@@ -104,6 +102,8 @@ class HomeFragment : Fragment() {
         })
 
     }
+
+     */
 
 
 }
