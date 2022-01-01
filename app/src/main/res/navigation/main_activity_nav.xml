@@ -11,6 +11,9 @@
         <action
             android:id="@+id/action_mainFragment_to_detailsFragment"
             app:destination="@id/detailsFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_favoritesFragment4"
+            app:destination="@id/favoritesFragment" />
     </fragment>
     <fragment
         android:id="@+id/detailsFragment"
@@ -20,4 +23,9 @@
             android:name="movieData"
             app:argType="com.onurberin.movieapp.data.remote.MovieDTO" />
     </fragment>
+    <fragment
+        android:id="@+id/favoritesFragment"
+        android:name="com.onurberin.movieapp.view.FavoritesFragment"
+        android:label="fragment_favorites"
+        tools:layout="@layout/fragment_favorites" />
 </navigation>

@@ -24,14 +24,15 @@
                 android:layout_height="230dp"
                 android:layout_centerInParent="true"
                 android:scaleType="matrix"/>
+
             <ImageView
                 android:id="@+id/img_detail_like"
                 android:layout_width="50dp"
                 android:layout_height="70dp"
                 android:layout_below="@+id/img_detail"
                 android:layout_alignParentEnd="true"
-                android:scaleType="fitXY"
-                android:background="@drawable/ic_like" />
+                android:background="@drawable/ic_like"
+                android:scaleType="fitXY" />
             <TextView
                 android:id="@+id/txt_imdb"
                 android:layout_width="wrap_content"
