@@ -25,7 +25,10 @@ data class MovieDTO (
     var vote_average: Double?,
 
     @SerializedName("poster_path")
-    var poster_path: String? = null
+    var poster_path: String?,
+
+    @ColumnInfo(typeAffinity = ColumnInfo.BLOB)
+    var imgByte: ByteArray?
 
 
 ) : Parcelable, Serializable {

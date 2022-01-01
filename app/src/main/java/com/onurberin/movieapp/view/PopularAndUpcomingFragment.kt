@@ -12,7 +12,7 @@ import com.onurberin.movieapp.adapter.ViewPagerAdapter
 
 
 class PopularAndUpcomingFragment : Fragment() {
-    private lateinit var v: View
+
     private lateinit var tabViewPager :ViewPager
     private lateinit var tabLayout :TabLayout
 
@@ -26,28 +26,23 @@ class PopularAndUpcomingFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        v = view
 
-        tabViewPager = v.findViewById(R.id.tab_viewpager)
-        tabLayout = v.findViewById(R.id.tab_tablayout)
-
+        tabViewPager = view.findViewById(R.id.tab_viewpager)
+        tabLayout = view.findViewById(R.id.tab_tablayout)
        // setSupportActionBar(R.id.tab_toolbar)
 
-
         fun setupViewPager(viewpager: ViewPager) {
-            var adapter: ViewPagerAdapter = ViewPagerAdapter(childFragmentManager)//burada supportFragmentManager yazıyodu
+            val adapter = ViewPagerAdapter(childFragmentManager)//burada supportFragmentManager yazıyodu
 
             // LoginFragment is the name of Fragment and the Login
             // is a title of tab
             adapter.addFragment(PopularFragment(), "Popular")
             adapter.addFragment(UpcomingFragment(), "Upcoming")
-
             // setting adapter to view pager.
             viewpager.setAdapter(adapter)
         }
+
         setupViewPager(tabViewPager)
-
         tabLayout.setupWithViewPager(tabViewPager)
-
     }
 }

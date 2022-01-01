@@ -18,13 +18,11 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class PopularFragment : Fragment() {
 
-    private lateinit var v: View
-    var BASE_URL: String = "https://api.themoviedb.org/3/"
-    private var api_key: String = "787e75e639e0896dcb4ffe2f44545b43"
-    var retrofit: Retrofit? = null
-    var movieAPI: MovieAPI? = null
-    var movieCall: retrofit2.Call<MovieFirstData>? = null
-    var movieFirstData: MovieFirstData? = null
+    private var BASE_URL: String = "https://api.themoviedb.org/3/"
+    private var retrofit: Retrofit? = null
+    private var movieAPI: MovieAPI? = null
+    private var movieCall: retrofit2.Call<MovieFirstData>? = null
+    private var movieFirstData: MovieFirstData? = null
     private lateinit var movieDTO: List<MovieDTO>
     private lateinit var mRecyclerView: RecyclerView
     private lateinit var movieAdapter: HomeMovieAdapter
@@ -40,7 +38,6 @@ class PopularFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        v = view
 
         mRecyclerView = view.findViewById(R.id.home_recycler_view)
         retrofit = Retrofit.Builder()
@@ -49,13 +46,10 @@ class PopularFragment : Fragment() {
             .build()
         movieAPI = retrofit!!.create(MovieAPI::class.java)
         fetchData()
-
     }
 
-
-    fun fetchData(){
-
-        movieCall = movieAPI!!.getTopRatedMovies(api_key, 1)
+    private fun fetchData(){
+        movieCall = movieAPI!!.getTopRatedMovies()
         movieCall!!.enqueue(object : retrofit2.Callback<MovieFirstData> {
             override fun onResponse(
                 call: retrofit2.Call<MovieFirstData>,
@@ -78,13 +72,11 @@ class PopularFragment : Fragment() {
 
     fun getMovies(){
         mRecyclerView.layoutManager = GridLayoutManager(activity, numberOfColumns)
-
         movieAdapter = HomeMovieAdapter(movieDTO)
         if(mRecyclerView.itemDecorationCount > 0)
             mRecyclerView.removeItemDecorationAt(0)
         mRecyclerView.addItemDecoration(HomeCustomDecoration(25))
         mRecyclerView.adapter = movieAdapter
-
     }
 
 

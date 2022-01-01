@@ -10,51 +10,43 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.onurberin.movieapp.R
 import com.onurberin.movieapp.data.remote.MovieDTO
+import com.onurberin.movieapp.databinding.HomeRecyclerItemBinding
 import com.onurberin.movieapp.view.MainFragmentDirections
 
 class HomeMovieAdapter(private val movieDTO: List<MovieDTO>):
     RecyclerView.Adapter<HomeMovieAdapter.MoviesHolder>() {
 
-    private lateinit var view: View
-    var aPos: Int = 0
+    var aPosition: Int = 0
 
-    inner class MoviesHolder(var view: View): RecyclerView.ViewHolder(view) {
-        var txtMovieName: TextView = view.findViewById(R.id.home_grid_movie_name)
-        var txtMoviePoint: TextView = view.findViewById(R.id.home_grid_movie_point)
-        var imgMoviePoster: ImageView = view.findViewById(R.id.home_grid_movie_image)
-
-        fun bind(movieDTO: MovieDTO){
-            txtMovieName.text = movieDTO.title
-            txtMoviePoint.text = movieDTO.vote_average.toString()
-            Glide
-                .with(view)
-                .load("https://image.tmdb.org/t/p/original" + movieDTO.poster_path)
-                .centerCrop()
-                //.placeholder(R.drawable.loading_spinner)
-                .into(imgMoviePoster);
-
-        }
+    inner class MoviesHolder(val binding: HomeRecyclerItemBinding): RecyclerView.ViewHolder(binding.root) {
 
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MoviesHolder {
-        view = LayoutInflater.from(parent.context).inflate(R.layout.home_recycler_item, parent, false)
-        return MoviesHolder(view)
+        val binding = HomeRecyclerItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return MoviesHolder(binding)
     }
 
     override fun onBindViewHolder(holder: MoviesHolder, position: Int) {
-        holder.bind(movieDTO[position])
 
-        holder.view.setOnClickListener {
+        holder.binding.homeGridMovieName.text = movieDTO[position].title
+        holder.binding.homeGridMoviePoint.text = movieDTO[position].vote_average.toString()
+        Glide
+            .with(holder.binding.root)
+            .load("https://image.tmdb.org/t/p/original" + movieDTO[position].poster_path)
+            .centerCrop()
+            //.placeholder(R.drawable.loading_spinner)
+            .into(holder.binding.homeGridMovieImage);
 
-            aPos = holder.adapterPosition
 
-            if (aPos != RecyclerView.NO_POSITION){
-                val direction = MainFragmentDirections.actionMainFragmentToDetailsFragment(movieData = movieDTO[aPos])
+        holder.binding.root.setOnClickListener {
+            aPosition = holder.adapterPosition
+            if (aPosition != RecyclerView.NO_POSITION){
+                val direction = MainFragmentDirections.actionMainFragmentToDetailsFragment(movieData = movieDTO[aPosition])
                 Navigation.findNavController(it).navigate(direction)
             }
-
         }
+
     }
 
     override fun getItemCount(): Int {

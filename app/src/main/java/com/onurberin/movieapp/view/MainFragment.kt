@@ -11,10 +11,9 @@ import com.onurberin.movieapp.R
 
 
 class MainFragment : Fragment() {
-    private lateinit var v: View
+
     private lateinit var bottomNav: BottomNavigationView
     private lateinit var transaction: FragmentTransaction
-
     private lateinit var homeFragment: HomeFragment
     private lateinit var popularAndUpcomingFragment: PopularAndUpcomingFragment
     private lateinit var favoritesFragment: FavoritesFragment
@@ -29,8 +28,8 @@ class MainFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        v = view
-        bottomNav = v.findViewById(R.id.bottom_navigation_view)
+
+        bottomNav = view.findViewById(R.id.bottom_navigation_view)
 
         homeFragment = HomeFragment()
         popularAndUpcomingFragment = PopularAndUpcomingFragment()
