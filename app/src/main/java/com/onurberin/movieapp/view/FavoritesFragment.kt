@@ -50,6 +50,9 @@ class FavoritesFragment : Fragment() {
     private fun handleResponse(favoriteList : List<MovieDTO>) {
         mRecyclerView.layoutManager = LinearLayoutManager(requireActivity().applicationContext)
         val adapter = FavoritesAdapter(favoriteList)
+        if(mRecyclerView.itemDecorationCount > 0)
+            mRecyclerView.removeItemDecorationAt(0)
+        mRecyclerView.addItemDecoration(HomeCustomDecoration(25))
         mRecyclerView.adapter = adapter
 
     }

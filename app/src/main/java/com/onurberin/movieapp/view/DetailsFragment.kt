@@ -47,6 +47,8 @@ class DetailsFragment : Fragment() {
             movieData = DetailsFragmentArgs.fromBundle(it).movieData
             binding.txtMovieName.text = movieData.title
             binding.txtMovieOverviewFromapi.text = "Overview: " + movieData.overview
+            binding.txtMovieReleaseDateFromapi.text = movieData.release_date
+            binding.txtMovieLanguageFromapi.text = movieData.original_language
             binding.txtImdbFromapi.text = movieData.vote_average.toString()
             Glide
                 .with(view)

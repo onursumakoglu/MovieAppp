@@ -12,4 +12,6 @@
     <color name="rose_quartz">#F7BEC0</color>
     <color name="red">#E7625F</color>
     <color name="app_color">#85B1AD</color>
+    <color name="details_color_black">#273238</color>
+    <color name="details_color_white">#E0E0E0</color>
 </resources>

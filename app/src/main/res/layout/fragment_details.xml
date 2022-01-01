@@ -11,26 +11,29 @@
         android:layout_height="match_parent"
         android:orientation="horizontal"
         android:layout_weight="0.5"
-        android:background="@color/movie_blue">
-
+        android:background="@color/details_color_black">
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="277dp"
             android:layout_centerHorizontal="true">
+
             <ImageView
                 android:id="@+id/img_detail"
                 android:layout_width="170dp"
                 android:layout_height="230dp"
+                android:layout_alignParentTop="true"
                 android:layout_centerInParent="true"
-                android:scaleType="matrix"/>
+                android:layout_marginTop="8dp"
+                android:scaleType="matrix" />
 
             <ImageView
                 android:id="@+id/img_detail_like"
-                android:layout_width="50dp"
-                android:layout_height="70dp"
+                android:layout_width="43dp"
+                android:layout_height="44dp"
                 android:layout_below="@+id/img_detail"
                 android:layout_alignParentEnd="true"
+                android:layout_marginEnd="30dp"
                 android:background="@drawable/ic_like"
                 android:scaleType="fitXY" />
 
@@ -41,8 +44,10 @@
                 android:layout_below="@+id/img_detail"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
                 android:text="IMDB:"
-                android:textSize="20dp" />
+                android:textSize="18sp"
+                android:textColor="@color/white"/>
 
             <TextView
                 android:id="@+id/txt_imdb_fromapi"
@@ -52,8 +57,9 @@
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
                 android:layout_toEndOf="@+id/txt_imdb"
-                android:text="puan gelecek"
-                android:textSize="20dp" />
+                android:text="8.5"
+                android:textSize="18sp"
+                android:textColor="@color/white"/>
         </RelativeLayout>
 
 
@@ -64,49 +70,75 @@
         android:orientation="horizontal"
         android:layout_weight="0.5"
         android:background="#BDBDBD">
+
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:background="@color/details_color_white">
+
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
+
                 <TextView
                     android:id="@+id/txt_movie_name"
-                    android:layout_width="wrap_content"
+                    android:layout_width="300dp"
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
-                    android:layout_marginTop="30dp"
+                    android:layout_marginTop="10dp"
+                    android:ellipsize="end"
+                    android:gravity="center"
+                    android:lines="2"
                     android:text="Movie Name"
-                    android:textSize="20dp"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
                     android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txt_movie_overview_fromapi"
+                    android:layout_width="377dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/txt_movie_name"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginTop="10dp"
+                    android:text="Overview"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
                 <TextView
                     android:id="@+id/txt_movie_release_date"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/txt_movie_name"
-                    android:layout_marginStart="10dp"
+                    android:layout_below="@+id/txt_movie_overview_fromapi"
+                    android:layout_marginStart="20dp"
                     android:layout_marginTop="10dp"
                     android:text="Release Date:"
-                    android:textSize="20dp" />
+                    android:textSize="16sp"
+                    android:textColor="@color/black" />
+
                 <TextView
                     android:id="@+id/txt_movie_release_date_fromapi"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/txt_movie_name"
+                    android:layout_below="@+id/txt_movie_overview_fromapi"
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="10dp"
                     android:layout_toEndOf="@+id/txt_movie_release_date"
                     android:text="date"
-                    android:textSize="20dp" />
+                    android:textSize="16sp"
+                    android:textColor="@color/black"/>
+
                 <TextView
                     android:id="@+id/txt_movie_language"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/txt_movie_release_date"
-                    android:layout_marginStart="10dp"
+                    android:layout_marginStart="20dp"
                     android:layout_marginTop="10dp"
                     android:text="Language:"
-                    android:textSize="20dp" />
+                    android:textSize="16sp"
+                    android:textColor="@color/black"/>
 
                 <TextView
                     android:id="@+id/txt_movie_language_fromapi"
@@ -117,17 +149,9 @@
                     android:layout_marginTop="10dp"
                     android:layout_toEndOf="@+id/txt_movie_language"
                     android:text="dili"
-                    android:textSize="20dp" />
+                    android:textSize="16sp"
+                    android:textColor="@color/black"/>
 
-
-                <TextView
-                    android:id="@+id/txt_movie_overview_fromapi"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/txt_movie_language"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginTop="10dp"
-                    android:textSize="20dp" />
             </RelativeLayout>
 
         </ScrollView>

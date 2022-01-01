@@ -15,20 +15,23 @@ data class MovieDTO (
     @ColumnInfo(name = "title")
     @SerializedName("title")
     var title: String?,
-
     @ColumnInfo(name = "overview")
     @SerializedName("overview")
     var overview: String?,
-
     @ColumnInfo(name = "vote_average")
     @SerializedName("vote_average")
     var vote_average: Double?,
-
+    @ColumnInfo(name = "release_date")
+    @SerializedName("release_date")
+    var release_date: String?,
+    @ColumnInfo(name = "original_language")
+    @SerializedName("original_language")
+    var original_language: String?,
     @SerializedName("poster_path")
     var poster_path: String?,
-
     @ColumnInfo(typeAffinity = ColumnInfo.BLOB)
     var imgByte: ByteArray?
+
 
 
 ) : Parcelable, Serializable {
