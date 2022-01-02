@@ -19,6 +19,7 @@ import java.io.ByteArrayOutputStream
 import android.graphics.Bitmap
 import android.view.MenuItem
 import androidx.core.view.drawToBitmap
+import androidx.navigation.Navigation
 import com.onurberin.movieapp.data.roomdb.DatabaseProcesses
 import com.onurberin.movieapp.databinding.FragmentDetailsBinding
 import java.io.DataInput
@@ -61,6 +62,12 @@ class DetailsFragment : Fragment() {
             DatabaseProcesses.insertDataToRoom(view, movieData, bitmap)
 
         }
+
+        binding.imageViewBack.setOnClickListener {
+            val direction = DetailsFragmentDirections.actionDetailsFragmentToMainFragment()
+            Navigation.findNavController(it).navigate(direction)
+        }
+
     }
 
 }
