@@ -5,7 +5,7 @@
     android:layout_height="280dp"
     android:padding="15dp"
     android:orientation="vertical"
-    android:background="@color/black"
+    android:background="@color/dark_gray"
     android:id="@+id/home_popular_movies_layout">
 
     <ImageView
@@ -27,12 +27,14 @@
             android:layout_centerVertical="true"
             android:layout_marginRight="5dp"
             android:layout_toStartOf="@+id/home_grid_movie_point"
+            android:fontFamily="@font/lemonada_semibold"
             android:ellipsize="end"
             android:gravity="start"
-            android:lines="2"
+            android:lines="1"
             android:text="Movie Name"
-            android:textColor="#EA9210"
-            android:textStyle="bold" />
+            android:textColor="@color/app_color"
+            android:textStyle="bold"
+            />
 
         <TextView
             android:id="@+id/home_grid_movie_point"
@@ -40,7 +42,8 @@
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:text="8/10"
-            android:textColor="#EA9210"/>
+            android:textColor="@color/app_color"
+            android:fontFamily="@font/lemonada_semibold"/>
 
     </RelativeLayout>
 

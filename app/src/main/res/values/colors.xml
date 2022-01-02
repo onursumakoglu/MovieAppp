@@ -5,13 +5,17 @@
     <color name="purple_700">#FF3700B3</color>
     <color name="teal_200">#A7D8D3</color>
     <color name="teal_700">#FF018786</color>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
-    <color name="movie_blue">#A6C4C1</color>
     <color name="ivory">#E9EAE0</color>
     <color name="rose_quartz">#F7BEC0</color>
     <color name="red">#E7625F</color>
-    <color name="app_color">#85B1AD</color>
+    <color name="app_color">#A8D3CF</color>
     <color name="details_color_black">#273238</color>
     <color name="details_color_white">#E0E0E0</color>
+    <color name="movie_blue">#A6C4C1</color>
+    <color name="very_dark_gray">#383939</color>
+    <color name="dark_gray">#484949</color>
+    <color name="light_gray">#B1B1B1</color>
+    <color name="very_light_gray">#BDBDBD</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
 </resources>
