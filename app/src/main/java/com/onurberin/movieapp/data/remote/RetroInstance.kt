@@ -10,7 +10,6 @@ class RetroInstance {
 
         fun getRetroInstance() : Retrofit {
 
-
             return Retrofit.Builder()
                 .baseUrl(baseURL)
                 .addConverterFactory(GsonConverterFactory.create())
