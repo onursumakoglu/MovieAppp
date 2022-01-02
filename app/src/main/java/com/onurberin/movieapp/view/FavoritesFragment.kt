@@ -17,7 +17,7 @@ import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
 
-class FavoritesFragment : Fragment() {
+class   FavoritesFragment : Fragment() {
 
     private lateinit var v: View
     private lateinit var mRecyclerView: RecyclerView
