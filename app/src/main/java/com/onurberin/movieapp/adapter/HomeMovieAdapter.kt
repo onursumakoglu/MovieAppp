@@ -35,9 +35,7 @@ class HomeMovieAdapter(private val movieDTO: List<MovieDTO>):
             .with(holder.binding.root)
             .load("https://image.tmdb.org/t/p/original" + movieDTO[position].poster_path)
             .centerCrop()
-            //.placeholder(R.drawable.loading_spinner)
             .into(holder.binding.homeGridMovieImage);
-
 
         holder.binding.root.setOnClickListener {
             aPosition = holder.adapterPosition

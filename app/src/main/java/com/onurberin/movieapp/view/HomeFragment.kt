@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ProgressBar
+import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -30,6 +32,7 @@ class HomeFragment : Fragment() {
     private lateinit var mRecyclerView: RecyclerView
     private lateinit var movieAdapter: HomeMovieAdapter
     var numberOfColumns = 2
+    private lateinit var progressBar: ProgressBar
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -42,6 +45,8 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        progressBar = view.findViewById(R.id.loading_progress)
+        progressBar.visibility = View.VISIBLE
         mRecyclerView = view.findViewById(R.id.home_recycler_view)
         retrofit = Retrofit.Builder()
             .baseUrl(BASE_URL)
@@ -63,12 +68,15 @@ class HomeFragment : Fragment() {
                     movieFirstData = response.body()
                     movieFirstData?.let {
                         movieDTO = it.results
+                        progressBar.visibility = View.INVISIBLE
                         getMovies()
                     }
                 }
             }
             override fun onFailure(call: retrofit2.Call<MovieFirstData>, t: Throwable) {
-                println("başarısız")
+                progressBar.visibility = View.INVISIBLE
+                Toast.makeText(activity,"Please check your internet connection or connect to another network.",
+                    Toast.LENGTH_LONG).show()
             }
         })
     }
@@ -83,7 +91,6 @@ class HomeFragment : Fragment() {
 
     }
 
-
     /*private fun attachPopularMoviesOnScrollListener(){
         mRecyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener(){
             override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
@@ -91,6 +98,4 @@ class HomeFragment : Fragment() {
         })
     }
      */
-
-
 }

@@ -1,5 +1,6 @@
 package com.onurberin.movieapp.view
 
+import android.R
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -16,6 +17,7 @@ import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
 import java.io.ByteArrayOutputStream
 import android.graphics.Bitmap
+import android.view.MenuItem
 import androidx.core.view.drawToBitmap
 import com.onurberin.movieapp.databinding.FragmentDetailsBinding
 
@@ -75,6 +77,18 @@ class DetailsFragment : Fragment() {
         }
 
     }
+
+    /*
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == R.id.home) {
+            onB
+            return true
+        }
+        return false
+    }
+
+     */
+
 
 }
 
