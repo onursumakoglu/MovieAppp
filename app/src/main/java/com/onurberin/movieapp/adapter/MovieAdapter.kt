@@ -1,29 +1,25 @@
 package com.onurberin.movieapp.adapter
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.onurberin.movieapp.R
 import com.onurberin.movieapp.data.remote.MovieDTO
-import com.onurberin.movieapp.databinding.HomeRecyclerItemBinding
+import com.onurberin.movieapp.databinding.HomeAndPopularRecyclerItemBinding
 import com.onurberin.movieapp.view.MainFragmentDirections
 
-class HomeMovieAdapter(private val movieDTO: List<MovieDTO>):
-    RecyclerView.Adapter<HomeMovieAdapter.MoviesHolder>() {
+class MovieAdapter(private val movieDTO: List<MovieDTO>):
+    RecyclerView.Adapter<MovieAdapter.MoviesHolder>() {
 
     var aPosition: Int = 0
 
-    inner class MoviesHolder(val binding: HomeRecyclerItemBinding): RecyclerView.ViewHolder(binding.root) {
+    inner class MoviesHolder(val binding: HomeAndPopularRecyclerItemBinding): RecyclerView.ViewHolder(binding.root) {
 
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MoviesHolder {
-        val binding = HomeRecyclerItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding = HomeAndPopularRecyclerItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return MoviesHolder(binding)
     }
 

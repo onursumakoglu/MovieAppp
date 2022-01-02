@@ -10,24 +10,24 @@ import android.widget.Toast
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.onurberin.movieapp.R
-import com.onurberin.movieapp.adapter.HomeMovieAdapter
+import com.onurberin.movieapp.adapter.MovieAdapter
 import com.onurberin.movieapp.data.remote.MovieAPI
 import com.onurberin.movieapp.data.remote.MovieDTO
 import com.onurberin.movieapp.data.remote.MovieFirstData
+import com.onurberin.movieapp.data.remote.RetroInstance
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 class PopularFragment : Fragment() {
 
-    private var BASE_URL: String = "https://api.themoviedb.org/3/"
     private var retrofit: Retrofit? = null
     private var movieAPI: MovieAPI? = null
     private var movieCall: retrofit2.Call<MovieFirstData>? = null
     private var movieFirstData: MovieFirstData? = null
     private lateinit var movieDTO: List<MovieDTO>
     private lateinit var mRecyclerView: RecyclerView
-    private lateinit var movieAdapter: HomeMovieAdapter
+    private lateinit var movieAdapter: MovieAdapter
     var numberOfColumns = 2
     private lateinit var progressBar: ProgressBar
 
@@ -45,10 +45,8 @@ class PopularFragment : Fragment() {
         progressBar = view.findViewById(R.id.loading_progress)
         progressBar.visibility = View.VISIBLE
         mRecyclerView = view.findViewById(R.id.home_recycler_view)
-        retrofit = Retrofit.Builder()
-            .baseUrl(BASE_URL)
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
+
+        retrofit = RetroInstance.getRetroInstance()
         movieAPI = retrofit!!.create(MovieAPI::class.java)
         fetchData()
     }
@@ -80,7 +78,7 @@ class PopularFragment : Fragment() {
 
     fun getMovies(){
         mRecyclerView.layoutManager = GridLayoutManager(activity, numberOfColumns)
-        movieAdapter = HomeMovieAdapter(movieDTO)
+        movieAdapter = MovieAdapter(movieDTO)
         if(mRecyclerView.itemDecorationCount > 0)
             mRecyclerView.removeItemDecorationAt(0)
         mRecyclerView.addItemDecoration(HomeCustomDecoration(25))

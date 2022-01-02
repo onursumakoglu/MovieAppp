@@ -18,8 +18,6 @@ import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
 
 class   FavoritesFragment : Fragment() {
-
-    private lateinit var v: View
     private lateinit var mRecyclerView: RecyclerView
     private val compositeDisposable = CompositeDisposable()
 
@@ -33,7 +31,6 @@ class   FavoritesFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        v = view
 
         mRecyclerView = view.findViewById(R.id.favorites_recycler_view)
         val db = Room.databaseBuilder(requireActivity().applicationContext, MovieDatabase::class.java, "Movie").build()

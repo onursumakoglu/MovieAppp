@@ -19,15 +19,15 @@ import java.io.ByteArrayOutputStream
 import android.graphics.Bitmap
 import android.view.MenuItem
 import androidx.core.view.drawToBitmap
+import com.onurberin.movieapp.data.roomdb.DatabaseProcesses
 import com.onurberin.movieapp.databinding.FragmentDetailsBinding
+import java.io.DataInput
 
 
 class DetailsFragment : Fragment() {
 
     private lateinit var movieData: MovieDTO
-    private lateinit var db: MovieDatabase
     private lateinit var movieDao: MovieDao
-    private val compositeDisposable = CompositeDisposable()
     private var _binding: FragmentDetailsBinding? = null
     private val binding get() = _binding!!
 
@@ -42,9 +42,6 @@ class DetailsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        db = Room.databaseBuilder(requireContext().applicationContext, MovieDatabase::class.java, "Movie").build()
-        movieDao = db.movieDao()
-
         arguments?.let {
             movieData = DetailsFragmentArgs.fromBundle(it).movieData
             binding.txtMovieName.text = movieData.title
@@ -56,39 +53,15 @@ class DetailsFragment : Fragment() {
                 .with(view)
                 .load("https://image.tmdb.org/t/p/original" + movieData.poster_path)
                 .centerCrop()
-                //.placeholder(R.drawable.loading_spinner)
                 .into(binding.imgDetail)
         }
 
         binding.imgDetailLike.setOnClickListener {
-            val baos = ByteArrayOutputStream()
             val bitmap = binding.imgDetail.drawToBitmap()
-            bitmap.compress(Bitmap.CompressFormat.PNG, 100, baos)
-            val byteImage = baos.toByteArray()
-            movieData.imgByte = byteImage
+            DatabaseProcesses.insertDataToRoom(view, movieData, bitmap)
 
-            compositeDisposable.add(
-                movieDao.insert(movieData)
-                    .subscribeOn(Schedulers.io())
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe()
-            )
-            Snackbar.make(view, "${movieData.title} has been added to your favourites.", Snackbar.LENGTH_LONG).show()
         }
-
     }
-
-    /*
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if (item.itemId == R.id.home) {
-            onB
-            return true
-        }
-        return false
-    }
-
-     */
-
 
 }
 
